@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
-import { Article, Div, DivContainer, DivImg, Section } from "./styled-components";
+import { Article, Div, DivContainer, DivImg, Section } from "./Aplication-styled-components";
+
 
 export const Application = () => {
     const [characters, setCharacters] = useState();
@@ -20,31 +21,41 @@ export const Application = () => {
     return (
         <>
             <h1>Rick and Morty</h1>
-            <section>
-            {characters && characters.length > 0 && characters.map((charactersObj, index) => (
+            <Section>
+                {characters && characters.length > 0 && characters.map((charactersObj, index) => (
 
-                    <DivContainer>
-                        <Article to={charactersObj.route} className='App-link' onClick={() => console.log("Click", characters)}>
+                    <DivContainer key={index}>
+                        <Article to={charactersObj.route} className='App-link' onClick={() => console.log("charactersObject", charactersObj)}>
                             <DivImg>
-                                {/* imagen */}
+                                <img src={charactersObj.image} />
                             </DivImg>
+
                             <Div >
                                 <div>
-                                {charactersObj.name}
-                                <p>{charactersObj.species}</p>
+                                    {charactersObj.name}
+                                    <p>{charactersObj.species}</p>
                                 </div>
 
                                 <div>
-                                   <p>Last known location: <em>{charactersObj.location.name}</em></p> 
+                                    <p>Last known location: <em>{charactersObj.location.name}</em></p>
                                 </div>
-                                
+
                             </Div>
 
                         </Article>
                     </DivContainer>
 
-))}
-</section>
+                ))}
+            </Section>
         </>
     );
 }
+
+// width: 100%;
+//     height: 100%;
+//     margin: 0px;
+//     opacity: 1;
+//     transition: opacity 0.5s ease 0s;
+//     object-position: center center;
+//     object-fit: cover;
+// }
