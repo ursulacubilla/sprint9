@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from 'axios';
 import { Article, Div, DivContainer, DivImg, Section } from "./Aplication-styled-components";
 
@@ -10,7 +10,7 @@ export const Application = () => {
         return axios.get('https://rickandmortyapi.com/api/character')
             .then((response) => {
                 setCharacters(response.data.results);
-                console.log(response.data.results);
+                // console.log(response.data.results);
             });
     }
 
@@ -34,6 +34,8 @@ export const Application = () => {
                                 <div>
                                     {charactersObj.name}
                                     <p>{charactersObj.species}</p>
+                                    <p>{charactersObj.gender}</p>
+                                    <p>{charactersObj.status}</p>
                                 </div>
 
                                 <div>
