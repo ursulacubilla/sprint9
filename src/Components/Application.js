@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
 import { Article, Div, DivContainer, DivImg, Section } from "./Aplication-styled-components";
+import { Link } from "react-router-dom";
 
 
 export const Application = () => {
@@ -9,8 +10,12 @@ export const Application = () => {
     const fetchData = () => {
         return axios.get('https://rickandmortyapi.com/api/character')
             .then((response) => {
-                setCharacters(response.data.results);
-                // console.log(response.data.results);
+                const ruta = response.data.results.map((item) => {
+                    item.route = '/episodes/' + item.id;
+                    return item;
+                })
+                console.log("Ruta", ruta);
+                setCharacters(ruta);
             });
     }
 
@@ -33,14 +38,13 @@ export const Application = () => {
                             <Div >
                                 <div>
                                     {charactersObj.name}
-                                    <p>{charactersObj.species}</p>
-                                    <p>{charactersObj.gender}</p>
-                                    <p>{charactersObj.status}</p>
+                                    <p>Species: <em>{charactersObj.species}</em></p>
+                                    <p>Gender: <em>{charactersObj.gender}</em></p>
+                                    <p>Status: <em>{charactersObj.status}</em></p>
+                                    {/* <p>Last known location: <em>{charactersObj.location.name}</em></p> */}
                                 </div>
-
-                                <div>
-                                    <p>Last known location: <em>{charactersObj.location.name}</em></p>
-                                </div>
+                               
+                                    <Link to={charactersObj.route}>Ver Episodios</Link>
 
                             </Div>
 

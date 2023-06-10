@@ -5,7 +5,7 @@ export const Header = () => {
         <nav>
             <ul>
                 <li><Link to="Aplication">CHARACTERS</Link></li>
-                <li><Link to="Episode">EPISODES</Link></li>
+                {/* <li><Link to="Episodes">EPISODES</Link></li> */}
                 <li><Link to="Login">LOGIN</Link></li>
                 <li><Link to="Register">REGISTER</Link></li>
             </ul>
