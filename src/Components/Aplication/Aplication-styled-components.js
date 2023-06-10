@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const Section = styled.section`
 display: flex;
 -webkit-box-pack: center;
@@ -42,3 +43,15 @@ color: rgb(255, 255, 255);
 display: flex;
 flex-direction: column;
 `;
+
+export const LinkA = styled.a`
+color: white;
+`;
+
+
+// Link
+ /* a:-webkit-any-link {
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+} */

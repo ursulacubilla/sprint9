@@ -1,11 +1,11 @@
 import React from 'react';
 // import './App.css';
-import { Application } from './Components/Application';
+import { Application } from './Components/Aplication/Application';
 import { Route, Routes } from 'react-router-dom';
-import { Header } from './Components/Header';
-import { Login } from './Components/Login';
-import { Register } from './Components/Register';
-import { Episode } from './Components/Episodes';
+import { Header } from './Components/Header/Header';
+import { Login } from './Components/Login/Login';
+import { Register } from './Components/Register/Register';
+import { Episode } from './Components/Episode/Episodes';
 
 
 function App() {

@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
+// import '../App.css';
 import axios from 'axios';
 import { Article, Div, DivContainer, DivImg, Section } from "./Aplication-styled-components";
 import { Link } from "react-router-dom";
+
+
 
 
 export const Application = () => {
@@ -44,7 +47,7 @@ export const Application = () => {
                                     {/* <p>Last known location: <em>{charactersObj.location.name}</em></p> */}
                                 </div>
                                
-                                    <Link to={charactersObj.route}>Ver Episodios</Link>
+                                   <Link to={charactersObj.route}>Ver lista de episodios</Link>
 
                             </Div>
 

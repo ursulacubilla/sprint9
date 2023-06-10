@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Article, DivContainer, DivImg, Section, Div } from "./Aplication-styled-components";
+import { Div, Section } from './Episode-styled-components';
 import { useParams } from "react-router-dom";
 
 
@@ -9,61 +9,58 @@ export const Episode = () => {
     const { characterId } = useParams();
 
     // console.log("ID", characterId);
-    
-   
+
+
     function fetchEpisodes(idsEpisodes) {
         return axios.get('https://rickandmortyapi.com/api/episode/' + idsEpisodes)
-        .then((response) => {
-            setEpisode(response.data);
-        })
+            .then((response) => {
+                setEpisode(response.data);
+            })
     }
     function fetchDataEpisode() {
-       return axios.get('https://rickandmortyapi.com/api/character/' + characterId)
+        return axios.get('https://rickandmortyapi.com/api/character/' + characterId)
             .then((response) => {
                 setEpisode(response.data);
                 // console.log("Hola",response.data);
                 const result = response.data.episode.map((item) => {
                     // console.log("ITEM", item)
-                  const remplazo =  item.replace('https://rickandmortyapi.com/api/episode/', '');
-                //    console.log("item", remplazo);
+                    const remplazo = item.replace('https://rickandmortyapi.com/api/episode/', '');
+                    //    console.log("item", remplazo);
                     return remplazo;
                 })
                 const idsEpisodes = result.join();
-                
+
                 fetchEpisodes(idsEpisodes);
                 // setEpisode(join);
-                
+
                 // console.log("join", join);
             });
     }
     //  console.log("episode", episode);
-   
+
 
     useEffect(() => {
         fetchDataEpisode();
     }, []);
 
-console.log("Episode", episode);
+    console.log("Episode", episode);
     return (
         <>
             <h1>Rick and Morty</h1>
             <Section>
-               {/* <p>{episode.name}</p>  */}
-                {/* {episode && episode.length > 0 && episode.map((episodesObj, index) => { 
-                        console.log("episodeObj", episodesObj);
-                    <DivContainer key={index}>
-                        <Article>
-                            <Div>
-                                <div>
-                                    
-                                  <p>{episodesObj.episode}</p>
 
-                                </div>
-                               
+                {episode && episode.length > 0 && episode.map((episodesObj, index) => {
+                    console.log("episodeObj", episodesObj);
+                    return (
+                        <div key={index} >
+                            <Div>
+                                <h4>{episodesObj.name}</h4>
+                                <p>{episodesObj.episode}</p>
+                                <p>{episodesObj.air_date}</p>
                             </Div>
-                        </Article>
-                    </DivContainer>
-})} */}
+                        </div>
+                    )
+                })}
             </Section>
         </>
     );
