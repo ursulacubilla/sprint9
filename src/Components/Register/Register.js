@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Banner } from "../Banner/Banner";
+import { DivContainer, Input, Main, Paragraph } from "./Register-styled-components";
 
 
 export const Register = () => {
@@ -14,14 +16,20 @@ export const Register = () => {
     function handleOnClickRegister(e) {
         localStorage.setItem('user', user);
         localStorage.setItem('password', password);
-        console.log('localStorage',localStorage);
+        console.log('localStorage', localStorage);
     }
-    return(
+    return (
         <>
-        <input placeholder="User" onChange={handleUser}></input>
-        <input placeholder="Password" onChange={handlePassword}></input>
-        
-        <button onClick={handleOnClickRegister}>Register</button>
+            <Banner />
+               <Paragraph>Registrate Gratis!!!</Paragraph>
+            <Main>
+                <DivContainer>
+                    <Input placeholder="User" onChange={handleUser}></Input>
+                    <Input placeholder="Password" onChange={handlePassword}></Input>
+            <br></br>
+                    <button onClick={handleOnClickRegister}>Register</button>
+                </DivContainer>
+            </Main>
         </>
     );
 }

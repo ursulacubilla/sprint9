@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Banner } from "../Banner/Banner";
+import { DivContainer, Input, Main } from "./Login-styled-components";
 
 export const Login = ({ user, password }) => {
     const [user1, sertUser1] = useState('');
@@ -11,19 +13,26 @@ export const Login = ({ user, password }) => {
         setPAssword1(e.target.value);
     };
     function handleOnClickLogin() {
-       const localStorageUser = localStorage.getItem('user', user);
-       const localStoragePassword = localStorage.getItem('password', password);
-       
-       const result = user1 === localStorageUser && password1 === localStoragePassword ? "Password y contraseña, valido!" : "Password o contraseña, invalido!";
+        const localStorageUser = localStorage.getItem('user', user);
+        const localStoragePassword = localStorage.getItem('password', password);
 
-       console.log("Resultado:", result);
+        const result = user1 === localStorageUser && password1 === localStoragePassword ? "Password y contraseña, valido!" : "Password o contraseña, invalido!";
+
+        console.log("Resultado:", result);
     }
-    return(
+    return (
         <>
-        <input placeholder="User" onChange={handleUser1}></input>
-       <input placeholder="Password" onChange={handlePassword1}></input>
+            <Banner />
+            <Main>
+            <DivContainer>
+                <Input placeholder="User" onChange={handleUser1}></Input>
+                
+                <Input placeholder="Password" onChange={handlePassword1}></Input>
+                <br></br>
+                <button onClick={handleOnClickLogin}>Login</button>
+            </DivContainer>
+            </Main>
 
-       <button onClick={handleOnClickLogin}>Login</button>
         </>
     );
 }

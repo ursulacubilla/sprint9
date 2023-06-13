@@ -10,6 +10,7 @@ align-items: center;
 flex-wrap: wrap;
 max-width: 1920px;
 `;
+
 export const DivContainer = styled.div`
 display: flex;
 -webkit-box-pack: center;
@@ -19,6 +20,7 @@ align-items: center;
 flex-wrap: wrap;
 max-width: 1920px;
 `;
+
 export const Article = styled.article` 
 width: 600px;
 height: 220px;
