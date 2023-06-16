@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 
 export const Section = styled.section`
@@ -34,7 +35,7 @@ box-shadow: rgb(0 0 0 / 10%) 0px 4px 6px -1px, rgb(0 0 0 / 6%) 0px 2px 4px -1px;
 
 export const DivImg = styled.div`
 flex: 2 1 0%;
-    width: 100%;
+width: 100%;
 `;
 
 export const Div = styled.div`
@@ -46,14 +47,34 @@ display: flex;
 flex-direction: column;
 `;
 
-export const LinkA = styled.a`
-color: white;
+export const LinkStyled = styled(Link)`
+color: rgb(255, 255, 255);
+text-decoration: none;
+border: 1px solid rgb(255, 152, 0);
+width: 150px;
+height: 30px;
+margin-left: 70px;
+margin-top: 10px;
+padding-top: 10px;
+border-radius: 10px;
+padding-left: 10px;
+
+&:hover {
+    background-color: rgb(255, 152, 0);
+}
 `;
+export const Button = styled.button`
+color: rgb(255, 255, 255);
+border: 2px solid rgb(255, 152, 0);
+width: 250px;
+height: 50px;
+font-size: 25px;
+margin-left: calc(100% - 60%);
+margin-top: 20px;
+border-radius: 10px;
+padding-left: 10px;
+background-color: rgb(60, 62, 68);
 
-
-// Link
- /* a:-webkit-any-link {
-    color: white;
-    cursor: pointer;
-    text-decoration: none;
-} */
+&:hover {
+    background-color: rgb(255, 152, 0);
+`;

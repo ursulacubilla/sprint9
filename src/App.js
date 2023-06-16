@@ -6,6 +6,7 @@ import { Header } from './Components/Header/Header';
 import { Login } from './Components/Login/Login';
 import { Register } from './Components/Register/Register';
 import { Episode } from './Components/Episode/Episodes';
+import { Welcome } from './Components/Welcome/Welcome';
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
       </header>
         <Routes>
         <Route path='Aplication' element={<Application />} /> 
-        {/* <Route path='Episodes' element={<Episode />} />  */}
+        <Route path='Welcome' element={<Welcome />} /> 
         <Route path='Login' element={<Login />} /> 
         <Route path='Register' element={<Register />} /> 
         <Route path='episodes/:characterId' element={<Episode />} /> 

@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const H1 = styled.h1`
+text-align: center;
+margin-bottom: 20px
+`;
+
 export const Section = styled.section`
 display: flex;
 -webkit-box-pack: center;

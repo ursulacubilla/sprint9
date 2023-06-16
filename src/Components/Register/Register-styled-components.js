@@ -28,5 +28,18 @@ margin-top: 30px;
 `;
 
 export const Button = styled.button`
+color: rgb(255, 255, 255);
+border: 2px solid rgb(255, 152, 0);
+width: 250px;
+height: 50px;
+font-size: 25px;
+margin-top: 20px;
+border-radius: 10px;
+padding-left: 10px;
+background-color: rgb(60, 62, 68);
 
+&:hover {
+    background-color: rgb(255, 152, 0);
 `;
+
+// -600 se rompe el responsive

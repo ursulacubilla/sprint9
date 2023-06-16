@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 // import '../App.css';
 import axios from 'axios';
-import { Article, Div, DivContainer, DivImg, DivTitle, ImgHeader, Section } from "./Aplication-styled-components";
-import { Link } from "react-router-dom";
+import { Article, Div, DivContainer, DivImg, Section, LinkStyled, Button } from "./Aplication-styled-components";
 import { Banner } from "../Banner/Banner";
 import { Body } from "./Body";
 
@@ -17,11 +16,12 @@ export const Application = () => {
         return axios.get('https://rickandmortyapi.com/api/character')
             .then((response) => {
                 setNext(response.data.info.next);
-                const ruta = response.data.results.map((item) => {
+                const routeMap = response.data.results.map((item) => {
                     item.route = '/episodes/' + item.id;
                     return item;
                 })
-                setCharacters(ruta);
+                setCharacters(routeMap);
+                console.log("routemap", routeMap);
             });
         }
         
@@ -34,9 +34,9 @@ export const Application = () => {
             .then((response) => {
                 setNext(response.data.info.next);
                 const nextMap = response.data.results.map((item) => {
-                    item.route = item.url.replace('https://rickandmortyapi.com/api/character', '');
+                    item.route = '/episodes/' + item.id;
                     return item;
-                })
+                }) 
                 setCharacters([...characters,
                 ...response.data.results,
             ])
@@ -56,28 +56,27 @@ export const Application = () => {
                             <DivImg>
                                 <img src={charactersObj.image} />
                             </DivImg>
-
                             <Div >
                                 <div>
                                     {charactersObj.name}
                                     <p>Species: <em>{charactersObj.species}</em></p>
                                     <p>Gender: <em>{charactersObj.gender}</em></p>
-                                    <p>Status: <em>{charactersObj.status}</em></p>
-                                    
+                                    <p>Status: <em>{charactersObj.status}</em></p>                               
                                 </div>
-                               
-                                   <Link to={charactersObj.route}>Ver lista de episodios</Link>
-
+                                   <LinkStyled to={charactersObj.route}>Ver lista de episodios</LinkStyled>
                             </Div>
-
                         </Article>
                     </DivContainer>
 
                 ))}
             </Section>
            
-             {next !== null && <button onClick={handleOnClick}>View More</button> }
+             {next !== null && <Button onClick={handleOnClick}>View More</Button> }
             </>
     );
 }
 
+// registro y login ocultar el password.------
+// mostrar un mensaje de de registro exitoso y login correcto, o no exitoso o no correcto.-----
+// despues de que el usuario se registre tengo que limpiar la informacion del formulario.-------
+// ua vez que el usuario inicie, nueva propiedad en localstorage logueado (si o no). 
