@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 export const Nav = styled.nav`
 margin: 0px auto;
-max-width: 100%;
 min-height: 60px;
-padding: 0px 1.5rem;
+padding: 0px 10px;
 background-color: rgb(60, 62, 68);
+width: 90%;
 `;
 
 export const Ul = styled.ul`
@@ -28,15 +28,19 @@ color: white;
 export const LinkStyled = styled(Link)`
 text-decoration: none;
 color: rgb(255, 255, 255);
-// font-weight: 700;
 border: 1px solid rgb(255, 152, 0);
 width: 250px;
 height: 90px;
 margin-top: 10px;
 border-radius: 10px;
-padding: 10px;
+padding: 5px;
 
 &&:hover {
 background-color: rgb(255, 152, 0);
+}
+
+@media screen and (max-width: 600px) {
+    padding: 0;
+    font-size: 12px;
 }
 `;

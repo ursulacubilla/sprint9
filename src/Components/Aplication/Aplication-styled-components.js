@@ -4,9 +4,7 @@ import { Link } from "react-router-dom";
 
 export const Section = styled.section`
 display: flex;
--webkit-box-pack: center;
 justify-content: center;
--webkit-box-align: center;
 align-items: center;
 flex-wrap: wrap;
 max-width: 1920px;
@@ -14,9 +12,7 @@ max-width: 1920px;
 
 export const DivContainer = styled.div`
 display: flex;
--webkit-box-pack: center;
 justify-content: center;
--webkit-box-align: center;
 align-items: center;
 flex-wrap: wrap;
 max-width: 1920px;
@@ -28,9 +24,17 @@ height: 220px;
 display: flex;
 overflow: hidden;
 background: rgb(60, 62, 68);
-border-radius: 0.5rem;
-margin: 0.75rem;
+border-radius: 10px;
+margin: 10px;
 box-shadow: rgb(0 0 0 / 10%) 0px 4px 6px -1px, rgb(0 0 0 / 6%) 0px 2px 4px -1px;
+
+
+@media screen and (max-width: 600px) {
+    flex-direction: column;
+    height: initial;
+    width: 100%;
+    text-align: center;
+}
 `;
 
 export const DivImg = styled.div`
@@ -41,7 +45,7 @@ width: 100%;
 export const Div = styled.div`
 flex: 3 1 0%;
 position: relative;
-padding: 0.75rem;
+padding: 10px;
 color: rgb(255, 255, 255);
 display: flex;
 flex-direction: column;

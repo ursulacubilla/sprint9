@@ -14,22 +14,17 @@ export const Episode = () => {
     function fetchEpisodes(idsEpisodes) {
         return axios.get('https://rickandmortyapi.com/api/episode/' + '[' + idsEpisodes + ']')
             .then((response) => {
-                console.log("RespuestaAPI", response);
                 setEpisode(response.data);
             })
     }
     function fetchDataEpisode() {
         return axios.get('https://rickandmortyapi.com/api/character/' + characterId)
             .then((response) => {
-                console.log("1respuesta", response);
-                // setEpisode(response.data);
                 const result = response.data.episode.map((item) => {
                     const remplazo = item.replace('https://rickandmortyapi.com/api/episode/', '');
-                    console.log("resplazo", remplazo);
                     return remplazo;
                 })
                 const idsEpisodes = result.join();
-                console.log("Result", idsEpisodes);
 
                 fetchEpisodes(idsEpisodes);
                
@@ -41,7 +36,6 @@ export const Episode = () => {
         fetchDataEpisode();
     }, []);
 
-    console.log("Episode", episode);
     return (
         <>
             <Banner />
@@ -49,7 +43,6 @@ export const Episode = () => {
             <Section>
 
                 {episode && episode.length > 0 && episode.map((episodesObj, index) => {
-                    // console.log("episodeObj", episodesObj);
                     return (
                         <div key={index} >
                             <Div>

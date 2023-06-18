@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { Banner } from "../Banner/Banner";
 import { Button, DivContainer, Input, Main } from "./Login-styled-components";
+import { AuthenticationContext } from '../../authentication';
 
 export const Login = () => {
+    const { logIn } = useContext(AuthenticationContext);
+    const navigate = useNavigate();
     const [user1, sertUser1] = useState('');
     const [password1, setPassword1] = useState('');
 
@@ -15,27 +19,18 @@ export const Login = () => {
     function handleOnClickLogin() {
         const localStorageUser = localStorage.getItem('userRegister');
         const localStoragePassword = localStorage.getItem('passwordRegister');
-        
-        console.log("localStorageUser", localStorageUser);
-        console.log("localStoragePassword", localStoragePassword);
-
-        // const localStorageLoginUser = localStorage.setItem('userLogin', user1);
-        // const localStorageLoginPassword = localStorage.setItem('passwordLogin', password1);
 
         const result = user1 === localStorageUser && password1 === localStoragePassword ? "Password y contraseña, valido!" : "Password o contraseña, invalido!";
-
-        console.log("Resultado:", result);
-
         
         alert(user1 === localStorageUser && password1 === localStoragePassword ? "Password y contraseña, valido!" : "Password o contraseña, invalido!");
         
         if(result === "Password y contraseña, valido!") {
+            logIn();
+            navigate("/Aplication");
             sertUser1('');
             setPassword1('');
         }
 
-        // console.log("localStorageLoginUser", localStorage);
-        // console.log("localStorageLoginPassword", localStorageLoginPassword);
     }
     
 
