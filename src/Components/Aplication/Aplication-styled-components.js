@@ -81,4 +81,4 @@ background-color: rgb(60, 62, 68);
 
 &:hover {
     background-color: rgb(255, 152, 0);
-`;
+}`;
