@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.680f73db.css","mappings":"AAAA,MACI,UACJ,CACA,KACI,QAAS,CACT,SACJ","sources":["style.css"],"sourcesContent":["#root {\n    width: 100%;\n}\nhtml {\n    margin: 0;\n    padding: 0;\n}"],"names":[],"sourceRoot":""}
