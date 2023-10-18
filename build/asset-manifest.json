@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/sprint9/static/css/main.680f73db.css",
+    "main.js": "/sprint9/static/js/main.64d07a26.js",
+    "index.html": "/sprint9/index.html",
+    "main.680f73db.css.map": "/sprint9/static/css/main.680f73db.css.map",
+    "main.64d07a26.js.map": "/sprint9/static/js/main.64d07a26.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.680f73db.css",
+    "static/js/main.64d07a26.js"
+  ]
+}
